@@ -24,14 +24,14 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user  = User.find(params[:id])
-    @users = @user.following_relationships.paginate(page: params[:page])
+    @users = @user.following_users
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.follower_relationships.paginate(page: params[:page])
+    @users = @user.follower_users
     render 'show_follow'
   end
 
