@@ -7,11 +7,11 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+  has_many :microposts, dependent: :destroy
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :profile, presence: true, length: { maximum: 200 }
   validates :area, presence: true, length: { maximum: 50 }
   
-  has_many :microposts
   has_many :following_relationships, class_name:  "Relationship",
                                      foreign_key: "follower_id",
                                      dependent:   :destroy
