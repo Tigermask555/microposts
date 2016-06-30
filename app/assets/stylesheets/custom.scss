@@ -45,9 +45,17 @@ h2 {
   color: #777;
 }
 
+h3 {
+  font-size: 2em;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+section p {
+  padding: 0 0 0 20px;
 }
 
 /* header */
