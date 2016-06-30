@@ -7,7 +7,10 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
-<<<<<<< HEAD
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :profile, presence: true, length: { maximum: 200 }
+  validates :area, presence: true, length: { maximum: 50 }
+  
   has_many :microposts
   has_many :following_relationships, class_name:  "Relationship",
                                      foreign_key: "follower_id",
@@ -38,10 +41,4 @@ class User < ActiveRecord::Base
     Micropost.where(user_id: following_user_ids + [self.id])
   end
 
-=======
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-  validates :profile, presence: true, length: { maximum: 200 }
-  validates :area, presence: true, length: { maximum: 50 }
-  
->>>>>>> user-profile
 end
