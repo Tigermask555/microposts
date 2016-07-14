@@ -18,15 +18,16 @@
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
-      <%= will_paginate @microposts %>
      <% end %>
      </br>
      </br>
   </div>
+  <div class="col-md-8">
        <h3>Profile</h3>
        <p><%= @user.profile %></p>
        <h3>Area</h3>
        <p><%= @user.area %></p>
     </section>
+  </div>
   </aside>
 </div>

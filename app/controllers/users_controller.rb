@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
    @user = User.find(params[:id])
-   @microposts = @user.microposts.paginate(page: params[:page])
+   @microposts = @user.microposts.order(created_at: :desc)
   end
   
   def new
@@ -52,7 +52,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    binding.pry
     @users = User.page(params[:page]).per(10)
   end
 
